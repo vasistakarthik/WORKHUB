@@ -1,0 +1,682 @@
+/* =========================================
+   WORKHUB SCRUM MANAGER DASHBOARD
+========================================= */
+
+.scrum-dashboard {
+  width: 100%;
+  max-width: 1540px;
+  min-width: 0;
+  margin: 0 auto;
+
+  padding: 12px 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.scrum-dashboard *,
+.scrum-dashboard *::before,
+.scrum-dashboard *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.scrum-header {
+  width: 100%;
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.scrum-header-content {
+  min-width: 0;
+}
+
+.scrum-eyebrow {
+  display: block;
+  color: #00dcff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.scrum-header h1 {
+  margin: 5px 0;
+
+  font-size: clamp(27px, 2.5vw, 38px);
+  line-height: 1.15;
+  font-weight: 850;
+  color: #ffffff;
+}
+
+.scrum-header h2 {
+  margin: 5px 0;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.scrum-header h2 span {
+  color: #00d9ff;
+  font-weight: 800;
+}
+
+.scrum-header p {
+  margin-top: 6px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: #c0d5ec;
+}
+
+/* =========================================
+   CURRENT SPRINT
+========================================= */
+
+.current-sprint {
+  width: min(445px, 40%);
+  min-height: 88px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 13px 16px;
+
+  border: 1px solid #00a9d9;
+  border-radius: 16px;
+
+  background: rgba(4, 25, 48, 0.94);
+
+  box-shadow:
+    0 0 18px rgba(0, 174, 255, 0.12),
+    inset 0 0 15px rgba(0, 140, 255, 0.04);
+}
+
+.current-sprint-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #00e5ff;
+
+  border: 1px solid #007fae;
+  border-radius: 50%;
+
+  background: rgba(0, 190, 255, 0.13);
+}
+
+.current-sprint-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.current-sprint small,
+.current-sprint span {
+  font-size: 12px;
+  color: #b4c9df;
+}
+
+.current-sprint strong {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* =========================================
+   KPI STATISTICS
+========================================= */
+
+.scrum-stats {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.stat-card {
+  min-width: 0;
+  min-height: 96px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #009bd0;
+  border-radius: 16px;
+
+  background: rgba(3, 25, 47, 0.96);
+
+  box-shadow:
+    0 0 12px rgba(0, 150, 255, 0.08),
+    inset 0 0 15px rgba(0, 140, 255, 0.04);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #00d9ff;
+
+  box-shadow:
+    0 0 18px rgba(0, 180, 255, 0.15);
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #00e1ff;
+  background: rgba(0, 180, 255, 0.15);
+}
+
+.stat-content {
+  min-width: 0;
+}
+
+.stat-card strong {
+  display: block;
+
+  font-size: 31px;
+  line-height: 1;
+  font-weight: 850;
+  color: #ffffff;
+}
+
+.stat-card h3 {
+  margin: 5px 0;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stat-card small {
+  display: block;
+
+  font-size: 12px;
+  line-height: 1.4;
+  color: #a9c4e1;
+}
+
+.stat-card.purple .stat-icon {
+  color: #d17cff;
+  background: rgba(145, 40, 255, 0.22);
+}
+
+.stat-card.green .stat-icon {
+  color: #00e5ad;
+  background: rgba(0, 220, 155, 0.17);
+}
+
+.stat-card.blue .stat-icon {
+  color: #39baff;
+  background: rgba(0, 120, 255, 0.2);
+}
+
+/* =========================================
+   COMMON DASHBOARD PANELS
+========================================= */
+
+.dashboard-panel {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #00a9d9;
+  border-radius: 16px;
+
+  background: rgba(3, 24, 46, 0.96);
+
+  box-shadow:
+    0 0 15px rgba(0, 150, 255, 0.08),
+    inset 0 0 20px rgba(0, 140, 255, 0.025);
+}
+
+.panel-heading {
+  min-height: 46px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 0 17px;
+
+  border-bottom: 1px solid rgba(120, 180, 220, 0.2);
+}
+
+.panel-heading h3 {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.panel-heading>span,
+.panel-heading div>span {
+  color: #a5bfd9;
+  font-size: 12px;
+}
+
+/* =========================================
+   ANALYTICS LAYOUT
+========================================= */
+
+.scrum-analytics {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.scrum-analytics .dashboard-panel {
+  height: 247px;
+}
+
+/* =========================================
+   EMPTY STATES
+========================================= */
+
+.scrum-empty-state {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+
+  text-align: center;
+}
+
+.scrum-empty-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 11px;
+
+  color: #00e1ff;
+
+  border: 1px solid #00b8df;
+  border-radius: 50%;
+
+  background: rgba(0, 190, 255, 0.1);
+
+  box-shadow:
+    0 0 16px rgba(0, 200, 255, 0.1);
+}
+
+.scrum-empty-state h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.scrum-empty-state p {
+  max-width: 390px;
+  margin: 0;
+
+  color: #c0d5ec;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.scrum-empty-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 12px;
+  padding: 9px 15px;
+
+  border: 1px solid #00bce9;
+  border-radius: 11px;
+
+  color: #ffffff;
+  background: rgba(0, 120, 180, 0.08);
+
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.scrum-empty-link:hover {
+  background: #075b91;
+
+  box-shadow:
+    0 0 15px rgba(0, 200, 255, 0.25);
+}
+
+/* =========================================
+   BOTTOM SECTION
+========================================= */
+
+.scrum-bottom {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.scrum-bottom .dashboard-panel {
+  height: 270px;
+}
+
+.bottom-heading {
+  min-height: 64px;
+  padding: 0 19px;
+}
+
+.bottom-heading-title {
+  min-width: 0;
+}
+
+.bottom-heading h3 {
+  font-size: 19px;
+}
+
+.bottom-heading-title span {
+  display: block;
+  margin-top: 4px;
+}
+
+/* =========================================
+   PANEL ACTIONS
+========================================= */
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.panel-actions a,
+.bottom-heading>a {
+  color: #00dcff;
+
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.panel-actions a:hover,
+.bottom-heading>a:hover {
+  color: #ffffff;
+}
+
+.panel-actions .create-sprint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  border: 1px solid rgba(70, 170, 255, 0.5);
+  border-radius: 11px;
+
+  background: #0878fa;
+  color: #ffffff;
+
+  box-shadow:
+    0 0 12px rgba(0, 120, 255, 0.2);
+
+  transition: 0.2s ease;
+}
+
+.panel-actions .create-sprint:hover {
+  background: #168bff;
+
+  box-shadow:
+    0 0 18px rgba(0, 140, 255, 0.35);
+}
+
+/* =========================================
+   LARGE SCREENS
+========================================= */
+
+@media (min-width: 1600px) {
+  .scrum-dashboard {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .scrum-dashboard {
+    gap: 18px;
+  }
+
+  .scrum-analytics .dashboard-panel {
+    height: 260px;
+  }
+
+  .scrum-bottom .dashboard-panel {
+    height: 285px;
+  }
+}
+
+/* =========================================
+   TABLETS AND SMALL LAPTOPS
+========================================= */
+
+@media (max-width: 1200px) {
+  .scrum-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .scrum-analytics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scrum-analytics .dashboard-panel:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .current-sprint {
+    width: 360px;
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 850px) {
+  .scrum-dashboard {
+    padding: 12px 16px 22px;
+  }
+
+  .scrum-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .current-sprint {
+    width: 100%;
+  }
+
+  .scrum-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scrum-bottom .dashboard-panel {
+    min-height: 250px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .scrum-dashboard {
+    padding: 10px 12px 20px;
+    gap: 13px;
+  }
+
+  .scrum-header {
+    min-height: 0;
+    gap: 14px;
+  }
+
+  .scrum-header h1 {
+    font-size: 27px;
+  }
+
+  .scrum-header h2 {
+    font-size: 16px;
+  }
+
+  .scrum-header p {
+    font-size: 13px;
+  }
+
+  .current-sprint {
+    min-height: 78px;
+    padding: 10px;
+  }
+
+  .current-sprint-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .scrum-stats,
+  .scrum-analytics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stat-card {
+    min-height: 88px;
+  }
+
+  .scrum-analytics .dashboard-panel,
+  .scrum-analytics .dashboard-panel:last-child {
+    height: 240px;
+    grid-column: auto;
+  }
+
+  .scrum-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scrum-bottom .dashboard-panel {
+    height: auto;
+    min-height: 250px;
+  }
+
+  .panel-heading {
+    padding: 0 12px;
+  }
+
+  .panel-heading h3 {
+    font-size: 15px;
+  }
+
+  .bottom-heading {
+    min-height: 66px;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .bottom-heading h3 {
+    font-size: 16px;
+  }
+
+  .panel-actions {
+    gap: 8px;
+  }
+
+  .panel-actions a,
+  .bottom-heading>a {
+    font-size: 11px;
+  }
+
+  .panel-actions .create-sprint {
+    padding: 9px 10px;
+  }
+
+  .scrum-empty-state {
+    padding: 15px 12px;
+  }
+
+  .scrum-empty-state p {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .scrum-header h1 {
+    font-size: 23px;
+  }
+
+  .bottom-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .panel-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

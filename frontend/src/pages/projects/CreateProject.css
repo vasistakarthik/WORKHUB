@@ -1,0 +1,786 @@
+/* =====================================================
+   WORKHUB - CREATE PROJECT
+===================================================== */
+
+.create-project-page.compact-create-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 85px);
+    min-height: 600px;
+    padding: 8px 12px;
+    gap: 10px;
+    overflow: hidden;
+    color: #f8fafc;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.cp-top-header {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.create-project-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 7px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.create-project-breadcrumb a {
+    color: #7dd3fc;
+    text-decoration: none;
+}
+
+.cp-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.create-project-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.create-heading-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 1px solid #087e9b;
+    border-radius: 9px;
+    background: rgba(6, 182, 212, 0.13);
+    color: #22d3ee;
+}
+
+.create-project-heading h1 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 22px;
+    font-weight: 750;
+}
+
+.create-project-heading p {
+    margin: 3px 0 0;
+    color: #a9b9ce;
+    font-size: 11px;
+}
+
+/* TOP RIGHT BUTTONS */
+
+.cp-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cp-cancel-button,
+.cp-create-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 0 17px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cp-cancel-button {
+    border: 1px solid rgba(100, 116, 139, 0.55);
+    background: rgba(15, 35, 58, 0.95);
+    color: #e2e8f0;
+}
+
+.cp-create-button {
+    border: 1px solid #0ea5e9;
+    background: linear-gradient(135deg, #0284c7, #0875e8);
+    color: #fff;
+}
+
+.cp-create-button:hover {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    transform: translateY(-1px);
+}
+
+.cp-cancel-button:hover {
+    border-color: #38bdf8;
+}
+
+/* =====================================================
+   MAIN GRID
+===================================================== */
+
+.cp-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.cp-left-column,
+.cp-right-column {
+    display: grid;
+    min-width: 0;
+    min-height: 0;
+    gap: 10px;
+}
+
+.cp-left-column {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.cp-right-column {
+    grid-template-rows: auto minmax(0, 1fr);
+}
+
+/* =====================================================
+   SHARED SECTION
+===================================================== */
+
+.cp-section {
+    min-width: 0;
+    min-height: 0;
+    padding: 11px 13px;
+    border: 1px solid rgba(14, 165, 233, 0.5);
+    border-radius: 11px;
+    background: rgba(2, 17, 36, 0.94);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 9px;
+}
+
+.cp-section-title>span {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border: 1px solid #087e9b;
+    border-radius: 8px;
+    background: rgba(6, 182, 212, 0.12);
+    color: #67e8f9;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.cp-section-title h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.cp-section-title p {
+    margin: 3px 0 0;
+    color: #a5b7cc;
+    font-size: 10px;
+}
+
+/* =====================================================
+   PROJECT TEMPLATE
+===================================================== */
+
+.cp-template-section {
+    overflow: visible;
+}
+
+.cp-template-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.cp-template-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+    min-height: 105px;
+    padding: 10px 11px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 10px;
+    background: rgba(3, 23, 43, 0.92);
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cp-template-card:hover,
+.cp-template-card.selected {
+    border-color: #06b6d4;
+    background: rgba(3, 47, 72, 0.95);
+}
+
+.cp-template-card.selected {
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.17);
+}
+
+.cp-template-card>svg {
+    width: 23px;
+    height: 23px;
+    color: #22d3ee;
+}
+
+.cp-template-card h3 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.cp-template-card p {
+    margin: 0;
+    color: #bdcbdc;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.cp-selected-label {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #67e8f9;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* =====================================================
+   FORM FIELDS
+===================================================== */
+
+.cp-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 13px;
+}
+
+.cp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    color: #e2e8f0;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.cp-field b {
+    color: #f87171;
+}
+
+.cp-field input,
+.cp-field select,
+.cp-field textarea,
+.cp-selected-user-info select {
+    width: 100%;
+    min-width: 0;
+    min-height: 34px;
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid rgba(100, 116, 139, 0.6);
+    border-radius: 7px;
+    background: #081d34;
+    color: #fff;
+    font-family: inherit;
+    font-size: 10px;
+}
+
+.cp-field textarea {
+    min-height: 54px;
+    resize: vertical;
+}
+
+.cp-field input:focus,
+.cp-field select:focus,
+.cp-field textarea:focus,
+.cp-selected-user-info select:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+}
+
+.cp-field input::placeholder,
+.cp-field textarea::placeholder {
+    color: #71869e;
+}
+
+.cp-field select option,
+.cp-selected-user-info select option {
+    background: #081d34;
+    color: #fff;
+}
+
+.cp-field small {
+    color: #91a4ba;
+    font-size: 8px;
+    font-weight: 400;
+}
+
+.cp-full {
+    grid-column: 1 / -1;
+}
+
+.cp-character-count {
+    align-self: flex-end;
+}
+
+/* =====================================================
+   PROJECT INFORMATION
+===================================================== */
+
+.cp-information-section {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.cp-information-section .cp-form-grid {
+    align-content: start;
+}
+
+/* =====================================================
+   SCRUM CONFIGURATION
+===================================================== */
+
+.cp-scrum-section {
+    overflow: visible;
+}
+
+.cp-date-field>span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cp-scrum-section textarea {
+    min-height: 55px;
+}
+
+/* =====================================================
+   PROJECT LEAD
+===================================================== */
+
+.cp-lead-section {
+    overflow: visible;
+}
+
+.cp-lead-preview {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 8px;
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: rgba(6, 182, 212, 0.07);
+}
+
+.cp-lead-preview>div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.cp-lead-preview strong {
+    color: #f8fafc;
+    font-size: 10px;
+}
+
+.cp-lead-preview small {
+    color: #94a3b8;
+    font-size: 8px;
+}
+
+/* =====================================================
+   AVATARS
+===================================================== */
+
+.cp-avatar {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+/* =====================================================
+   TEAM SETUP
+===================================================== */
+
+.cp-team-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.cp-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 35px;
+    flex: 0 0 35px;
+    padding: 0 10px;
+    border: 1px solid rgba(100, 116, 139, 0.6);
+    border-radius: 7px;
+    color: #94a3b8;
+}
+
+.cp-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 10px;
+}
+
+.cp-user-list {
+    flex: 0 1 auto;
+    min-height: 0;
+    max-height: 190px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #155e75 transparent;
+}
+
+.cp-user-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 43px;
+    padding: 5px 3px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.cp-user-info,
+.cp-selected-user-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.cp-user-info strong,
+.cp-selected-user-info strong {
+    overflow: hidden;
+    color: #e2e8f0;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cp-user-info small,
+.cp-selected-user-info small {
+    overflow: hidden;
+    color: #94a3b8;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cp-user-role {
+    flex: 0 0 auto;
+    color: #bfdbfe;
+    font-size: 9px;
+}
+
+.cp-add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 62px;
+    min-height: 28px;
+    flex: 0 0 auto;
+    padding: 4px 7px;
+    border: 1px solid #087e9b;
+    border-radius: 6px;
+    background: rgba(8, 47, 73, 0.8);
+    color: #7dd3fc;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.cp-add-btn.added {
+    border-color: #047857;
+    background: rgba(6, 78, 59, 0.65);
+    color: #6ee7b7;
+}
+
+/* =====================================================
+   SELECTED MEMBERS
+===================================================== */
+
+.cp-selected-panel {
+    flex: 1 1 120px;
+    min-height: 105px;
+    margin-top: 8px;
+    padding: 8px 9px;
+    overflow-y: auto;
+    border: 1px solid rgba(56, 189, 248, 0.38);
+    border-radius: 9px;
+    background: rgba(3, 23, 43, 0.85);
+    scrollbar-width: thin;
+    scrollbar-color: #155e75 transparent;
+}
+
+.cp-selected-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cp-selected-heading h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.cp-selected-heading span {
+    display: grid;
+    place-items: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #075985;
+    color: #fff;
+    font-size: 9px;
+}
+
+.cp-selected-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 37px;
+    padding: 4px 2px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.cp-selected-user-info select {
+    min-height: 25px;
+    padding: 3px 7px;
+    font-size: 9px;
+}
+
+.cp-lead-tag {
+    flex: 0 0 auto;
+    padding: 4px 7px;
+    border-radius: 5px;
+    background: rgba(6, 182, 212, 0.12);
+    color: #67e8f9;
+    font-size: 8px;
+}
+
+.cp-remove-btn {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: #f87171;
+    cursor: pointer;
+}
+
+.cp-remove-btn:hover {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.cp-no-users {
+    padding: 15px 5px;
+    color: #94a3b8;
+    font-size: 9px;
+    text-align: center;
+}
+
+/* =====================================================
+   ERROR MESSAGE
+===================================================== */
+
+.cp-error {
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: 7px;
+    background: rgba(127, 29, 29, 0.2);
+    color: #fca5a5;
+    font-size: 10px;
+}
+
+/* =====================================================
+   REMOVE OLD BOTTOM FOOTER
+===================================================== */
+
+.cp-footer {
+    display: none !important;
+}
+
+/* =====================================================
+   SHORT DESKTOP SCREENS
+===================================================== */
+
+@media (min-width: 761px) and (max-height: 760px) {
+    .create-project-page.compact-create-page {
+        height: auto;
+        min-height: calc(100vh - 85px);
+        overflow: visible;
+    }
+
+    .cp-main-grid {
+        flex: 0 0 auto;
+        overflow: visible;
+    }
+
+    .cp-left-column {
+        grid-template-rows: auto auto auto;
+    }
+
+    .cp-right-column {
+        grid-template-rows: auto auto;
+    }
+
+    .cp-team-section {
+        min-height: 330px;
+    }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 760px) {
+    .create-project-page.compact-create-page {
+        height: auto;
+        min-height: calc(100vh - 85px);
+        overflow: visible;
+        padding: 8px;
+    }
+
+    .cp-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cp-header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .cp-main-grid {
+        grid-template-columns: minmax(0, 1fr);
+        flex: 0 0 auto;
+        overflow: visible;
+    }
+
+    .cp-left-column,
+    .cp-right-column {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .cp-information-section {
+        min-height: auto;
+    }
+
+    .cp-team-section {
+        min-height: 360px;
+    }
+
+    .cp-selected-panel {
+        min-height: 110px;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+    .create-project-heading h1 {
+        font-size: 19px;
+    }
+
+    .cp-template-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cp-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cp-full {
+        grid-column: auto;
+    }
+
+    .cp-section {
+        padding: 11px;
+    }
+
+    .cp-user-role {
+        display: none;
+    }
+
+    .cp-template-card {
+        min-height: 85px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cp-header-actions {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    .cp-header-actions button {
+        width: 100%;
+        padding: 0 10px;
+    }
+}

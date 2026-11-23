@@ -1,0 +1,628 @@
+/* =====================================
+   WORKHUB LOGIN PAGE
+===================================== */
+
+
+.login-page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(rgba(3, 12, 28, 0.22),
+            rgba(3, 12, 28, 0.22)),
+        url("/images/workhub-office.png") center center / cover no-repeat;
+}
+
+
+.login-page * {
+    box-sizing: border-box;
+}
+
+.login-page button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* HEADER */
+
+.login-header {
+    width: 100%;
+    min-height: 115px;
+    padding: 25px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+}
+
+.login-brand-symbol,
+.login-card-symbol {
+    color: #078cff;
+    font-size: 63px;
+    line-height: 1;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -7px;
+}
+
+.login-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.login-brand-text strong {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+}
+
+.login-brand-text strong span,
+.login-card-brand strong span {
+    color: #078cff;
+}
+
+.login-brand-text small {
+    color: #bdc9da;
+    font-size: 14px;
+}
+
+.login-help {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    background: transparent;
+    color: #e1e9f5;
+    font-size: 16px;
+    transition: color 0.25s ease;
+}
+
+.login-help:hover {
+    color: #159aff;
+}
+
+/* MAIN LAYOUT */
+
+.login-main {
+    width: 100%;
+    max-width: 1550px;
+    min-height: calc(100vh - 115px);
+    margin: 0 auto;
+    padding: 45px 6% 35px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+/* LEFT INTRO */
+
+.login-intro {
+    width: 100%;
+    max-width: 560px;
+}
+
+.login-eyebrow {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #bdcce1;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.login-intro h1 {
+    color: #fff;
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+
+.login-intro h1 span {
+    color: #20b5ff;
+}
+
+.login-intro-description {
+    max-width: 520px;
+    margin-top: 23px;
+    color: #d1dced;
+    font-size: 20px;
+    line-height: 1.65;
+}
+
+/* SIX HIGHLIGHTS */
+
+.login-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 24px;
+    max-width: 490px;
+    margin-top: 36px;
+}
+
+.login-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    color: #eaf2ff;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.login-highlight-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(25, 145, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(12, 47, 83, 0.72);
+    color: #078fff;
+    transition: 0.3s ease;
+}
+
+.login-highlight:hover .login-highlight-icon {
+    transform: translateY(-5px);
+    border-color: #168fff;
+    background: rgba(0, 119, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 130, 255, 0.2);
+}
+
+/* LEFT FOOTER */
+
+.login-intro-footer {
+    margin-top: 58px;
+}
+
+.login-progress-line {
+    width: 95px;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(150, 183, 220, 0.15);
+}
+
+.login-progress-line span {
+    display: block;
+    width: 48px;
+    height: 100%;
+    border-radius: 10px;
+    background: #078fff;
+}
+
+.login-intro-footer p {
+    margin-top: 16px;
+    color: #b8c7da;
+    font-size: 13px;
+}
+
+/* LOGIN CARD WRAPPER */
+
+.login-card-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGIN CARD */
+
+.login-card {
+    width: 100%;
+    max-width: 510px;
+    padding: 55px 48px 35px;
+
+    border: 1px solid rgba(64, 164, 255, 0.78);
+    border-radius: 23px;
+
+    background:
+        radial-gradient(circle at 65% 0%,
+            rgba(255, 174, 80, 0.15),
+            transparent 35%),
+        linear-gradient(135deg,
+            rgba(19, 52, 91, 0.86),
+            rgba(5, 17, 37, 0.88));
+
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 75px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    animation: loginCardAppear 0.7s ease both;
+}
+
+@keyframes loginCardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CARD BRAND */
+
+.login-card-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-card-symbol {
+    font-size: 54px;
+}
+
+.login-card-brand strong {
+    color: #fff;
+    font-size: 31px;
+    letter-spacing: -1px;
+}
+
+/* CARD TEXT */
+
+.login-card h2 {
+    margin-top: 25px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.login-card h2 span {
+    color: #4caeff;
+}
+
+.login-card-description {
+    margin-top: 17px;
+    color: #d0dced;
+    font-size: 15px;
+    line-height: 1.65;
+    text-align: center;
+}
+
+/* MICROSOFT BUTTON */
+
+.login-microsoft-button {
+    width: 100%;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 29px;
+    padding: 12px 24px;
+
+    border: 1px solid #168bff;
+    border-radius: 11px;
+
+    background: linear-gradient(110deg, #0865ef, #087fff);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+
+    box-shadow: 0 10px 25px rgba(0, 100, 255, 0.22);
+    transition: 0.3s ease;
+}
+
+.login-microsoft-button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(110deg, #0877ff, #1598ff);
+    box-shadow: 0 13px 30px rgba(0, 120, 255, 0.35);
+}
+
+.login-microsoft-button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* MICROSOFT LOGO */
+
+.login-microsoft-logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+}
+
+.login-microsoft-logo i {
+    display: block;
+    width: 15px;
+    height: 15px;
+}
+
+.login-microsoft-logo .ms-red {
+    background: #f35325;
+}
+
+.login-microsoft-logo .ms-green {
+    background: #81bc06;
+}
+
+.login-microsoft-logo .ms-blue {
+    background: #05a6f0;
+}
+
+.login-microsoft-logo .ms-yellow {
+    background: #ffba08;
+}
+
+/* DIVIDER */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 27px 0 22px;
+}
+
+.login-divider span {
+    height: 1px;
+    flex: 1;
+    background: rgba(166, 193, 224, 0.3);
+}
+
+.login-divider p {
+    color: #c3d0e1;
+    font-size: 13px;
+}
+
+/* SECURITY CARD */
+
+.login-security {
+    min-height: 95px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 17px 20px;
+
+    border: 1px solid rgba(126, 171, 222, 0.2);
+    border-radius: 12px;
+    background: rgba(31, 61, 96, 0.35);
+}
+
+.login-security-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(3, 19, 40, 0.6);
+    color: #e1f0ff;
+}
+
+.login-security h3 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.login-security p {
+    margin-top: 5px;
+    color: #bac9dc;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+/* CARD FOOTER */
+
+.login-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 24px;
+    color: #a9bfd9;
+    font-size: 11px;
+}
+
+.login-card-footer svg {
+    color: #21a0ff;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1050px) {
+    .login-main {
+        gap: 30px;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .login-intro h1 {
+        font-size: 53px;
+    }
+
+    .login-intro-description {
+        font-size: 16px;
+    }
+
+    .login-card {
+        padding: 40px 30px 30px;
+    }
+
+    .login-highlights {
+        gap: 22px 14px;
+    }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+    .login-page {
+        min-height: 100vh;
+        overflow: auto;
+        background-position: center;
+    }
+
+    .login-header {
+        min-height: 85px;
+        padding: 18px 6%;
+    }
+
+    .login-brand-symbol {
+        font-size: 43px;
+    }
+
+    .login-brand-text strong {
+        font-size: 23px;
+    }
+
+    .login-brand-text small {
+        font-size: 10px;
+    }
+
+    .login-help {
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .login-help svg {
+        width: 18px;
+    }
+
+    .login-main {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 35px 6% 45px;
+    }
+
+    .login-intro {
+        max-width: 100%;
+    }
+
+    .login-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .login-intro h1 {
+        font-size: clamp(42px, 10vw, 58px);
+        letter-spacing: -2px;
+    }
+
+    .login-intro-description {
+        font-size: 15px;
+    }
+
+    .login-highlights {
+        max-width: 100%;
+        gap: 20px 12px;
+    }
+
+    .login-highlight {
+        font-size: 12px;
+    }
+
+    .login-highlight-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .login-highlight-icon svg {
+        width: 26px;
+    }
+
+    .login-intro-footer {
+        margin-top: 30px;
+    }
+
+    .login-card {
+        max-width: 480px;
+        padding: 35px 22px 25px;
+    }
+
+    .login-card-brand strong {
+        font-size: 26px;
+    }
+
+    .login-card-symbol {
+        font-size: 45px;
+    }
+
+    .login-card h2 {
+        font-size: 25px;
+    }
+
+    .login-microsoft-button {
+        min-height: 60px;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .login-security {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .login-security p {
+        font-size: 11px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+    .login-help span {
+        display: none;
+    }
+
+    .login-intro h1 {
+        font-size: 39px;
+    }
+
+    .login-highlights {
+        gap: 17px 8px;
+    }
+
+    .login-card {
+        padding: 30px 16px 22px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .login-page *,
+    .login-page *::before,
+    .login-page *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

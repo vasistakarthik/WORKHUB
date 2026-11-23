@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./js.app.json"
+    },
+    {
+      "path": "./js.node.json"
+    }
+  ]
+}
